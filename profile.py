@@ -175,6 +175,9 @@ if __name__ == "__main__":
         s = fetch(token)
         with open(os.path.join(here, "stats.json"), "w") as f:
             json.dump(s, f, indent=2)
+        print(f"stats refreshed: {s['repos']} repos, {s['private']} private, {s['commits']} commits")
+    else:
+        print("no ACCESS_TOKEN, using stats.json")
     with open(os.path.join(here, "stats.json")) as f:
         s = json.load(f)
     rows = build(s)
